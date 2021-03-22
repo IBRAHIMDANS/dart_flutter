@@ -5,6 +5,11 @@ void main(List<String> arguments) {
   Vehicle car = Vehicle(25, "car");
   print(car.runtimeType);
 
+  Collections collection = Collections([25, 42, 79, 12]);
+
+  print(collection.sort());
+  print(collection.multiply(2));
+  print(collection.condition((int i) => i % 2 == 0));
   /*print(v1.speed);
   v1.speedUp(50);
   print(v1.speed);*/
@@ -16,9 +21,9 @@ abstract class Vehicle {
 
   factory Vehicle(int speed, String type) {
     switch (type) {
-      case "bike":
+      case 'bike':
         return Bike(speed);
-      case "car":
+      case 'car':
         return Car(speed);
       default:
         throw Exception('Unknown type');
@@ -56,4 +61,23 @@ class Bike extends Vehicle {
 
 class Car extends Vehicle {
   Car(int speed) : super._(speed, 4);
+}
+
+class Collections {
+  List<int> list;
+
+  Collections(this.list);
+
+  List<int> sort() {
+    list.sort();
+    return list;
+  }
+
+  List<int> multiply(int number) {
+    return list.map((int i) => i * number).toList();
+  }
+
+  List<int> condition(dynamic condition) {
+    return list.where(condition).toList();
+  }
 }
