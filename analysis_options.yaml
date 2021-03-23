@@ -22,7 +22,7 @@ analyzer:
     always_put_required_named_parameters_first: error
     annotate_overrides: error
     avoid_empty_else: error
-    avoid_print: error
+    avoid_print: false
     avoid_types_as_parameter_names: error
     avoid_unused_constructor_parameters: error
     avoid_unnecessary_containers: error
